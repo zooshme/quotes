@@ -21,7 +21,8 @@ export default React.createClass({
   getRandomQuote() {
     return quotes[Math.round(Math.random() * (quotes.length - 1))];
   },
-  clickHandler() {
+  clickHandler(e) {
+    e.preventDefault();
     this.setState({
       quote: this.getRandomQuote()
     });
@@ -31,7 +32,7 @@ export default React.createClass({
       <div>
         <h1>Hello world</h1>
         <div>{this.state.quote.text}</div>
-        <a onClick={this.clickHandler}>Random quote</a>
+        <a href="/" onClick={this.clickHandler}>Random quote</a>
       </div>
     )
   }
